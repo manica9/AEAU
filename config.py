@@ -10,7 +10,6 @@ parser.add_argument("--atlas_file", type=str, help="gpu id number",
 parser.add_argument("--result_dir", type=str, help="results folder",
                     dest="result_dir", default='./Result')
 
-
 # train时参数
 parser.add_argument("--train_dir", type=str, help="data folder with training vols",
                     dest="train_dir", default="./dataset/LPBA40/train")
