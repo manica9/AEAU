@@ -303,7 +303,7 @@ class SpatialTransformer(nn.Module):  # 图像增强
 
         return F.grid_sample(src, new_locs, mode=self.mode)
 
-class TwoStage(nn.Module):  # 加了形变卷积
+class TwoStage(nn.Module):
     def __init__(self, in_ch, out_ch, vol_size):
         super(TwoStage, self).__init__()
 
