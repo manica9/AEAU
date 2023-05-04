@@ -62,8 +62,8 @@ class respath(nn.Module):
         # self.activation = nn.LeakyReLU(alpha)
 
     def forward(self, x):
+        out = x
         for i in range(4):
-            out = x
             conv1 = self.conv1(out)
             conv2 = self.conv2(out)
             out = conv1 + conv2
