@@ -109,7 +109,6 @@ def test():
         #     save_image(pred_flow['flow'].permute(0, 2, 3, 4, 1)[np.newaxis, ...], f_img, "AEAU_7lp_flow.nii.gz")
         #     save_image(pred_label, f_img, "AEAU_7lp_label.nii.gz")
         # del pred_flow, pred_img, pred_label
-
     print(DSC)
     print("mean(DSC): ", np.mean(DSC), "   std(DSC): ", np.std(DSC))
     print("mean: JAC", np.mean(JAC))
