@@ -93,9 +93,7 @@ def test():
             # 计算DSC
             dice = compute_label_group_dice(fixed_label, pred_label[0, 0, ...].cpu().detach().numpy(), group_dice())
             print("dice: ", dice)
-            avg = np.mean(dice)
-            dice.append(avg)
-            DSC.append(avg)
+            DSC.append(dice)
 
             # jacobin
             jac_det = loss.Get_Ja(pred_flow['flow'].permute(0, 2, 3, 4, 1))
@@ -106,11 +104,11 @@ def test():
             JAC.append(per)
             J.append(c.size(0))
             DET.append(jac_det.cpu().detach().numpy())
-        if '7' in file:
-            save_image(pred_img, f_img, "AEAU_7lp_warped.nii.gz")
-            save_image(pred_flow['flow'].permute(0, 2, 3, 4, 1)[np.newaxis, ...], f_img, "AEAU_7lp_flow.nii.gz")
-            save_image(pred_label, f_img, "AEAU_7lp_label.nii.gz")
-        del pred_flow, pred_img, pred_label
+        # if '7' in file:
+        #     save_image(pred_img, f_img, "AEAU_7lp_warped.nii.gz")
+        #     save_image(pred_flow['flow'].permute(0, 2, 3, 4, 1)[np.newaxis, ...], f_img, "AEAU_7lp_flow.nii.gz")
+        #     save_image(pred_label, f_img, "AEAU_7lp_label.nii.gz")
+        # del pred_flow, pred_img, pred_label
 
     print(DSC)
     print("mean(DSC): ", np.mean(DSC), "   std(DSC): ", np.std(DSC))
