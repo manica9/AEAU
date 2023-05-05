@@ -63,7 +63,7 @@ class respath(nn.Module):
 
     def forward(self, x):
         out = x
-        for i in range(4):
+        for i in range(4):  # 或者 1
             conv1 = self.conv1(out)
             conv2 = self.conv2(out)
             out = conv1 + conv2
